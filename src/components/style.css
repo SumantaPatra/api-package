@@ -1,0 +1,7 @@
+/* .ProductCard {
+    width: 200px;
+} */
+.ProductCard img{
+    width: 200px;
+    /* height: max-content; */
+}

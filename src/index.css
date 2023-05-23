@@ -1,13 +1,258 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  /**
+ * * Design Tokens
+ *  * These are the  Tokens need to used across the project so that changing a abosolute value here will refelect in entire components.
+ */
+
+  /** can be used for margin and padding in button and borders and so on  */
+
+  --tiny-xxs: 1px;
+  --tiny-xs: 2px;
+  --tiny-s: 4px;
+  --tiny-m: 6px;
+  --tiny-l: 8px;
+  --tiny-xl: 10px;
+  --tiny-xxl: 12px;
+  --tiny-xxxl: 14px;
+
+  /** can be used for sizing text and icon and so on  */
+
+  --size-xs: 0.25rem;
+  --size-s: 0.5rem;
+  --size-m: 1rem;
+  --size-l: 1.5rem;
+  --size-xl: 6.5rem;
+  --size-xxl: 7.5rem;
+  --size-xxxl: 8.5rem;
+  --size-huge: 9.5rem;
+
+  /* ProgressBar Sizing */
+
+  --size-progress-s: 1.5rem;
+  --size-progress-m: 2.5rem;
+  --size-progress-l: 3.5rem;
+
+  /** can be used for margin and padding in chip and borders and so on  */
+
+  --size-chip-m: 0.75rem;
+  --size-chip-l: 1.25rem;
+
+  /** can be used for margin and padding in buttons and borders and so on  */
+
+  --button-radius: 0;
+  --size-button-s: 0.75rem;
+  --size-button-l: 1.25rem;
+
+  /** commeting it out as it would impact all the components  */
+  /** Rating sizes **/
+  --rating-s: 2rem;
+  --rating-m: 2.5rem;
+  --rating-l: 3rem;
+  --rating-xl: 3.5rem;
+
+  --ratingcolor-primary: #fdcc0d;
+  --ratingcolor-secondary: #ff9529;
+
+  /** commeting it out as it would impact all the components  */
+
+  /* --size-zero: 0rem;
+  --size-xxs: 0.25rem;
+  --size-xs: 0.75rem;
+  --size-s: 1rem;
+  --size-m: 1.25rem;
+  --size-l: 1.5rem;
+  /* Added from me for Modal's Close Button */
+  --size-close-xm: 0.563rem;
+  --size-close-xl: 3rem;
+  --size-close-xxl: 4.5rem;
+  --size-close-xxxl: 14rem;
+  /* --size-xl: 1.75rem; */
+  /* --size-xxl: 2rem;  */
+
+  /** can be used for spacing and margins and all  */
+  --gaint-xs: 1rem;
+  --gaint-s: 2rem;
+  --gaint-m: 2.5rem;
+  --gaint-l: 4rem;
+  --gaint-xl: 5rem;
+
+  /** can be used for width, height, margin, border radius in fileUpload */
+  --size-file-xs: 0.75rem;
+  --size-file-s: 1.25rem;
+  --size-file-m: 1.5rem;
+  --size-file-l: 2.5rem;
+  --size-file-xl: 3.62rem;
+  --size-file-xxl: 7.5rem;
+  --sizs-file-xxxl: 11rem;
+  --size-file-huge: 12rem;
+  --size-file-margin-xs: 0.1rem;
+  --size-file-margin-x: 0.125rem;
+  --size-file-margin-m: 0.18rem;
+  --size-file-margin-l: 2.87rem;
+  --size-file-border-radius: 50%;
+
+  /** can be used for weight of font or used in places where you neeed const(s) like 100,200 and so on  */
+
+  --weight-xs: 100;
+  --weight-s: 200;
+  --weight-m: 400;
+  --weight-l: 500;
+  --weight-xl: 700;
+
+  /** can be used for sizes of icons avatars and other things */
+
+  --color-primary: #00b6a4;
+  --color-secondary: #ff0000;
+  --color-black: #2c2c2c;
+  --color-white: #ffffff;
+
+  --color-progressBar-secondary: #22c55e;
+  --color-progressBar-tertiary: #f97316;
+  --color-primary-light: #afa7fc;
+  --color-error: #fa1f4b;
+  --color-error-light: #ffa1b0;
+  --color-warning: #ffb02a;
+  --color-warning-light: #fff1db;
+  --color-success: #247712;
+  --color-success-light: #a8ef98;
+  --color-tertiary: #e4e0e0;
+
+  /** can be used for sizes of icons avatars and other things */
+
+  /* Switch control sizes and label sizes and colors */
+
+  --switchButton-s: 1rem;
+  --switchButton-m: 1.5rem;
+  --switchButton-l: 2rem;
+  --switchButton-xl: 2.5rem;
+
+  --switchLabel-s: 1rem;
+  --switchLabel-m: 1.5rem;
+  --switchLabel-l: 2rem;
+  --switchLabel-xl: 2.5rem;
+
+  --switchColor-primary: #fa1f4b;
+  --switchColor-secondary: #ffffff;
+
+  /** These are the colours resourses we can use. */
+
+  --color-primary-light: #e0e7ff;
+  --color-primary-dark: #3032a3;
+  --color-error: #fa1f4b;
+  --color-error-light: #ffe3e6;
+  --color-error-dark: #e8164a;
+  --color-warning: #ffb02a;
+  --color-warning-light: #fff9ee;
+  --color-warning-dark: #ffa103;
+  --color-success: #247712;
+  --color-success-light: #f0fced;
+  --color-success-dark: #39bb1c;
+
+  --color-dark-500: #9e9ea9;
+  --color-dark-900: #1a1a1d;
+
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+
+  --color-purple-500: #6366f1;
+
+  /** Functional Tokens  */
+  --size-button-xs: var(--size-s);
+  --size-button-m: var(--size-m);
+  --size-button-xl: var(--size-l);
+  --color-light: var(--color-white);
+  --color-primary-text: var(--color-gray-700);
+  --color-secondary-text: var(--color-gray-600);
+  --color-accent-text: var(--color-primary);
+  --color-border-light: var(--color-gray-200);
+
+  /* input-fields sizing */
+  --size-input-s: 0.75rem;
+
+  /* input-fields color */
+
+  --color-placeholder: var(--color-gray-500);
+  --color-focus-border: var(--color-purple-500);
+  --color-label: var(--color-gray-700);
+
+  /* typography color */
+
+  --primary-text-color: #4b5563;
+  --secondary-text-color: #030712;
+  --tertiary-text-color: #434951;
+  --success-text-color: #00b6a4;
+  --error-text-color: #ff0000;
+  --warning-text-color: #f39d34;
+  --color-background-light: var(--color-gray-100);
+  --color-border-medium: var(--color-gray-300);
+  --color-grey-dark: var(--color-gray-700);
+
+  /** These are the standard colours we use. Bassically the colour pallet of our project */
+
+  /* --color-dark: 
+  --color-light:
+  --color-primary:
+  --color-secondary:
+  --color-tertiary:
+  --color-accent:
+
+  --color-white:
+  --color-black: */
+
+  /** These are the colours we want to use in interactions and all. */
+
+  /* --color-error:
+  --color-warning:
+  --color-info:
+  --color-alert:
+  --color-sucess:
+  --color-icon: */
+  --color-shadow: #00000033;
+
+  /** can be used for various shodows we are using in the App */
+  --shadow-xs: var(--size-zero) var(--tiny-xxs) var(--tiny-xs) var(--size-zero)
+    var(--color-shadow);
+  --shadow-s: var(--size-zero) var(--tiny-s) var(--tiny-m) var(--size-zero)
+    var(--color-shadow);
+  --shadow-m: var(--size-zero) var(--tiny-m) var(--tiny-xxl) var(--size-zero)
+    var(--color-shadow);
+  --shadow-l: var(--size-zero) var(--tiny-l) var(--size-s) var(--size-zero)
+    var(--color-shadow);
+  --shadow-xl: var(--size-zero) var(--size-s) var(--size-xxl) var(--size-zero)
+    var(--color-shadow);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: Inter var, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', Segoe UI Symbol,
+    'Noto Color Emoji';
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
 }
