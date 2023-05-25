@@ -28,9 +28,10 @@ export default function Login(){
         e.preventDefault();
         console.log("submitting")
         try {
-         const data =  await ec.auth.login({username:state.phone,password:state.password,remember:state.remember})
+         const data =  await ec.authFeature.login({username:state.phone,password:state.password,remember:state.remember})
           if(data?.status === "SUCCESS"){
             navigate("/product")
+            navigate("/mycard")
           }else{
              alert("wrong credentials")
           }

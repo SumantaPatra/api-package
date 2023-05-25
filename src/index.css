@@ -4,231 +4,168 @@ html {
  *  * These are the  Tokens need to used across the project so that changing a abosolute value here will refelect in entire components.
  */
 
-  /** can be used for margin and padding in button and borders and so on  */
-
-  --tiny-xxs: 1px;
-  --tiny-xs: 2px;
-  --tiny-s: 4px;
-  --tiny-m: 6px;
-  --tiny-l: 8px;
-  --tiny-xl: 10px;
-  --tiny-xxl: 12px;
-  --tiny-xxxl: 14px;
-
-  /** can be used for sizing text and icon and so on  */
-
   --size-xs: 0.25rem;
   --size-s: 0.5rem;
   --size-m: 1rem;
   --size-l: 1.5rem;
-  --size-xl: 6.5rem;
-  --size-xxl: 7.5rem;
-  --size-xxxl: 8.5rem;
-  --size-huge: 9.5rem;
 
-  /* ProgressBar Sizing */
+  /* Spacing */
+  --size-spacing-xxs: 0.25rem; /* 4px  */
+  --size-spacing-xs: 0.5rem; /* 8px  */
+  --size-spacing-s: 0.75rem; /* 12px  */
+  --size-spacing-m: 1rem; /* 16px  */
+  --size-spacing-l: 1.25rem; /* 20px  */
+  --size-spacing-xl: 1.5rem; /* 24px  */
+  --size-spacing-xxl: 1.75rem; /* 28px  */
+  --size-spacing-xxxl: 2rem; /* 32px  */
+  --size-spacing-h: 2.5rem; /* 40px  */
 
-  --size-progress-s: 1.5rem;
-  --size-progress-m: 2.5rem;
-  --size-progress-l: 3.5rem;
+  /* Border Width */
+  --size-border-width-s: 0.063rem; /* 1px  */
+  --size-border-width-m: 0.125rem; /* 2px  */
+  --size-border-width-l: 0.188rem; /* 3px  */
 
-  /** can be used for margin and padding in chip and borders and so on  */
+  /* Border Radius */
+  --size-border-radius-tiny: 0.063rem; /* 1px */
+  --size-border-radius-xxs: 0.125rem; /* 2px */
+  --size-border-radius-xs: 0.25rem; /* 4px */
+  --size-border-radius-s: 0.375rem; /* 6px */
+  --size-border-radius-m: 0.5rem; /* 8px */
+  --size-border-radius-l: 0.625rem; /* 10px */
+  --size-border-radius-xl: 0.75rem; /* 12px */
+  --size-border-radius-xxl: 0.875rem; /* 14px */
+  --size-border-radius-h: 1rem; /* 16px */
 
-  --size-chip-m: 0.75rem;
-  --size-chip-l: 1.25rem;
+  /* Text sizes */
+  --size-font-xs: 0.625rem; /* 10px */
+  --size-font-s: 0.75rem; /* 12px */
+  --size-font-m: 0.875rem; /* 14px */
+  --size-font-l: 1rem; /* 16px */
 
-  /** can be used for margin and padding in buttons and borders and so on  */
+  /* Heading sizes */
+  --size-heading-xxxl: 6rem; /* 96px */
+  --size-heading-xxl: 3.75rem; /* 60px */
+  --size-heading-xl: 3rem; /* 48px */
+  --size-heading-l: 2.25rem; /* 36px */
+  --size-heading-m: 1.5rem; /* 24px */
+  --size-heading-s: 1.25rem; /* 20px */
 
-  --button-radius: 0;
-  --size-button-s: 0.75rem;
-  --size-button-l: 1.25rem;
+  /* Font Weights */
+  --font-weight-xxs: 100;
+  --font-weight-xs: 200;
+  --font-weight-s: 400;
+  --font-weight-m: 500;
+  --font-weight-l: 600;
+  --font-weight-xl: 700;
 
-  /** commeting it out as it would impact all the components  */
-  /** Rating sizes **/
-  --rating-s: 2rem;
-  --rating-m: 2.5rem;
-  --rating-l: 3rem;
-  --rating-xl: 3.5rem;
+  /* Box Shadows */
+  --shadow-xs: 0rem 0.063rem 0.125rem rgba(34, 34, 34, 0.15); /* 0px 1px 2px */
+  --shadow-s: 0rem 0.25rem 0.375rem rgba(34, 34, 34, 0.12); /*  0px 4px 6px */
+  --shadow-m: 0rem 0.375rem 0.75rem rgba(34, 34, 34, 0.12); /* 0px 6px 12px */
+  --shadow-l: 0rem 0.5rem 1rem rgba(34, 34, 34, 0.12); /* 0px 8px 16px */
+  --shadow-xl: 0rem 1rem 2rem rgba(34, 34, 34, 0.12); /* 0px 16px 32px */
 
-  --ratingcolor-primary: #fdcc0d;
-  --ratingcolor-secondary: #ff9529;
+  /* Colours */
+  /* Gray Colour Shades */
+  --color-gray-50: #fcfcfc;
+  --color-gray-100: #fafafa;
+  --color-gray-200: #f4f4f5;
+  --color-gray-300: #efeff1;
+  --color-gray-400: #c9c9cf;
+  --color-gray-500: #9e9ea9;
+  --color-gray-600: #656571;
+  --color-gray-700: #4d4d56;
+  --color-gray-800: #323239;
+  --color-gray-900: #1a1a1d;
 
-  /** commeting it out as it would impact all the components  */
-
-  /* --size-zero: 0rem;
-  --size-xxs: 0.25rem;
-  --size-xs: 0.75rem;
-  --size-s: 1rem;
-  --size-m: 1.25rem;
-  --size-l: 1.5rem;
-  /* Added from me for Modal's Close Button */
-  --size-close-xm: 0.563rem;
-  --size-close-xl: 3rem;
-  --size-close-xxl: 4.5rem;
-  --size-close-xxxl: 14rem;
-  /* --size-xl: 1.75rem; */
-  /* --size-xxl: 2rem;  */
-
-  /** can be used for spacing and margins and all  */
-  --gaint-xs: 1rem;
-  --gaint-s: 2rem;
-  --gaint-m: 2.5rem;
-  --gaint-l: 4rem;
-  --gaint-xl: 5rem;
-
-  /** can be used for width, height, margin, border radius in fileUpload */
-  --size-file-xs: 0.75rem;
-  --size-file-s: 1.25rem;
-  --size-file-m: 1.5rem;
-  --size-file-l: 2.5rem;
-  --size-file-xl: 3.62rem;
-  --size-file-xxl: 7.5rem;
-  --sizs-file-xxxl: 11rem;
-  --size-file-huge: 12rem;
-  --size-file-margin-xs: 0.1rem;
-  --size-file-margin-x: 0.125rem;
-  --size-file-margin-m: 0.18rem;
-  --size-file-margin-l: 2.87rem;
-  --size-file-border-radius: 50%;
-
-  /** can be used for weight of font or used in places where you neeed const(s) like 100,200 and so on  */
-
-  --weight-xs: 100;
-  --weight-s: 200;
-  --weight-m: 400;
-  --weight-l: 500;
-  --weight-xl: 700;
-
-  /** can be used for sizes of icons avatars and other things */
-
-  --color-primary: #00b6a4;
-  --color-secondary: #ff0000;
-  --color-black: #2c2c2c;
-  --color-white: #ffffff;
-
-  --color-progressBar-secondary: #22c55e;
-  --color-progressBar-tertiary: #f97316;
-  --color-primary-light: #afa7fc;
-  --color-error: #fa1f4b;
-  --color-error-light: #ffa1b0;
-  --color-warning: #ffb02a;
-  --color-warning-light: #fff1db;
-  --color-success: #247712;
-  --color-success-light: #a8ef98;
-  --color-tertiary: #e4e0e0;
-
-  /** can be used for sizes of icons avatars and other things */
-
-  /* Switch control sizes and label sizes and colors */
-
-  --switchButton-s: 1rem;
-  --switchButton-m: 1.5rem;
-  --switchButton-l: 2rem;
-  --switchButton-xl: 2.5rem;
-
-  --switchLabel-s: 1rem;
-  --switchLabel-m: 1.5rem;
-  --switchLabel-l: 2rem;
-  --switchLabel-xl: 2.5rem;
-
-  --switchColor-primary: #fa1f4b;
-  --switchColor-secondary: #ffffff;
-
-  /** These are the colours resourses we can use. */
-
-  --color-primary-light: #e0e7ff;
-  --color-primary-dark: #3032a3;
-  --color-error: #fa1f4b;
-  --color-error-light: #ffe3e6;
-  --color-error-dark: #e8164a;
-  --color-warning: #ffb02a;
-  --color-warning-light: #fff9ee;
-  --color-warning-dark: #ffa103;
-  --color-success: #247712;
-  --color-success-light: #f0fced;
-  --color-success-dark: #39bb1c;
-
-  --color-dark-500: #9e9ea9;
-  --color-dark-900: #1a1a1d;
-
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
-  --color-gray-950: #030712;
-
+  /* Purple Colour Shades */
+  --color-purple-50: #eeeeff;
+  --color-purple-100: #e0e7ff;
+  --color-purple-200: #c7c8fe;
+  --color-purple-300: #a5a7fc;
+  --color-purple-400: #8184f8;
   --color-purple-500: #6366f1;
+  --color-purple-600: #4649e5;
+  --color-purple-700: #3032a3;
+  --color-purple-800: #2e3081;
+  --color-purple-900: #1b1c4b;
 
-  /** Functional Tokens  */
-  --size-button-xs: var(--size-s);
-  --size-button-m: var(--size-m);
-  --size-button-xl: var(--size-l);
-  --color-light: var(--color-white);
-  --color-primary-text: var(--color-gray-700);
-  --color-secondary-text: var(--color-gray-600);
-  --color-accent-text: var(--color-primary);
+  /* Red Colour Shades */
+  --color-red-50: #fff0f2;
+  --color-red-100: #ffe3e6;
+  --color-red-200: #ffcbd4;
+  --color-red-300: #ffa1b0;
+  --color-red-400: #ff6c85;
+  --color-red-500: #fa1f4b;
+  --color-red-600: #e8164a;
+  --color-red-700: #c40c3e;
+  --color-red-800: #a40d3b;
+  --color-red-900: #8c0f39;
+
+  /* Yellow Colour Shades */
+  --color-yellow-50: #fff9ee;
+  --color-yellow-100: #fff1db;
+  --color-yellow-200: #ffdca0;
+  --color-yellow-300: #ffcd78;
+  --color-yellow-400: #ffbf51;
+  --color-yellow-500: #ffb02a;
+  --color-yellow-600: #ffa916;
+  --color-yellow-700: #ffa103;
+  --color-yellow-800: #ee9600;
+  --color-yellow-900: #d08200;
+
+  /* Green Colour Shades */
+  --color-green-50: #f0fced;
+  --color-green-100: #e2fadc;
+  --color-green-200: #a8ef98;
+  --color-green-300: #8cea76;
+  --color-green-400: #6fe554;
+  --color-green-500: #52e032;
+  --color-green-600: #3fcc1f;
+  --color-green-700: #39bb1c;
+  --color-green-800: #2f9917;
+  --color-green-900: #247712;
+
+  /* Functional Tokens */
+  /*Default Colours */
+  --color-primary: var(--color-purple-500);
+  --color-success: var(--color-green-500);
+  --color-warning: var(--color-yellow-500);
+  --color-error: var(--color-red-500);
+  --color-dark: var(--color-gray-900);
+  --color-default: var(--color-gray-100);
+  --color-disabled: var(--color-gray-300);
+
+  --color-secondary: #00b6a4;
+  --color-tertiary: #f97316;
+  --color-black: #2c2c2c;
+  --color-white: white;
+
+  /* Text Colours */
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-800);
+  --color-text-placeholder: var(--color-gray-500);
+
+  /* Border Colours */
+  --color-border-dark: var(--color-gray-900);
+  --color-border-gray1: var(--color-gray-500);
+  --color-border-gray2: var(--color-gray-400);
+  --color-border-gray3: var(--color-gray-300);
   --color-border-light: var(--color-gray-200);
 
-  /* input-fields sizing */
-  --size-input-s: 0.75rem;
+  --color-border-primary: var(--color-primary);
+  --color-border-success: var(--color-success);
+  --color-border-warning: var(--color-warning);
+  --color-border-error: var(--color-error);
 
-  /* input-fields color */
+  /* Active State Background Colours */
+  --color-active-bg-primary: var(--color-purple-50);
+  --color-active-bg-success: var(--color-green-50);
+  --color-active-bg-warning: var(--color-yellow-50);
+  --color-active-bg-error: var(--color-red-50);
+  --color-active-bg-dark: var(--color-gray-50);
 
-  --color-placeholder: var(--color-gray-500);
-  --color-focus-border: var(--color-purple-500);
-  --color-label: var(--color-gray-700);
-
-  /* typography color */
-
-  --primary-text-color: #4b5563;
-  --secondary-text-color: #030712;
-  --tertiary-text-color: #434951;
-  --success-text-color: #00b6a4;
-  --error-text-color: #ff0000;
-  --warning-text-color: #f39d34;
-  --color-background-light: var(--color-gray-100);
-  --color-border-medium: var(--color-gray-300);
-  --color-grey-dark: var(--color-gray-700);
-
-  /** These are the standard colours we use. Bassically the colour pallet of our project */
-
-  /* --color-dark: 
-  --color-light:
-  --color-primary:
-  --color-secondary:
-  --color-tertiary:
-  --color-accent:
-
-  --color-white:
-  --color-black: */
-
-  /** These are the colours we want to use in interactions and all. */
-
-  /* --color-error:
-  --color-warning:
-  --color-info:
-  --color-alert:
-  --color-sucess:
-  --color-icon: */
-  --color-shadow: #00000033;
-
-  /** can be used for various shodows we are using in the App */
-  --shadow-xs: var(--size-zero) var(--tiny-xxs) var(--tiny-xs) var(--size-zero)
-    var(--color-shadow);
-  --shadow-s: var(--size-zero) var(--tiny-s) var(--tiny-m) var(--size-zero)
-    var(--color-shadow);
-  --shadow-m: var(--size-zero) var(--tiny-m) var(--tiny-xxl) var(--size-zero)
-    var(--color-shadow);
-  --shadow-l: var(--size-zero) var(--tiny-l) var(--size-s) var(--size-zero)
-    var(--color-shadow);
-  --shadow-xl: var(--size-zero) var(--size-s) var(--size-xxl) var(--size-zero)
-    var(--color-shadow);
+  --color-accent-text: var(--color-primary);
 }
 
 body {
