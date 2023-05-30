@@ -4,7 +4,7 @@ import {
   ElementWrap,
   ImgWrap,
   Image,
-  Wrapper,
+  NameWrapper,
   NameWrap,
   RemoveButtonContainer,
   RemoveButton,
@@ -12,22 +12,24 @@ import {
   ButtonWrap,
   Square,
   Prices,
+  Wrapper,
+  RightWrap
 } from "./style";
 import PlusIcon from "./Icon/plus.svg";
 import MinusIcon from "./Icon/minus.svg";
 
-export function Card({ item, removeList, list }) {
+export function Card({ item, removeList, list, cb }) {
   const [count, setCount] = useState(1);
   const data = item.storeSpecificData;
-  // if(item.images.length > 0){
-  //   setCount(1)
-  // }
-  console.log(item.images, "dchd");
-  console.log(item);
+  const clickHandler = (price, discount, flag) => {
+    cb(price, discount, flag);
+  };
+  let totalPrice = 0
   return (
     <>
       {data &&
         data.map((val) => {
+          totalPrice = totalPrice+val.mrp
           return (
             <>
               {val.mrp && count >= 1 ? (
@@ -40,47 +42,56 @@ export function Card({ item, removeList, list }) {
                     />
                   </ImgWrap>
                   <Wrapper>
-                    <NameWrap>
-                      <TypographyText variant="xs" children={item.name} />
-                    </NameWrap>
-                    <RemoveButtonContainer>
-                      <RemoveButton
-                        text="Remove"
-                        variant="textOnly"
-                        size="s"
-                        onClick={() => {
-                          removeList(list?.filter((l) => l.id !== item.id));
-                        }}
+                    <NameWrapper>
+                      <NameWrap>
+                        <TypographyText variant="xs" children={item.name} />
+                      </NameWrap>
+                      <RemoveButtonContainer>
+                        <RemoveButton
+                          text="Remove"
+                          variant="textOnly"
+                          size="s"
+                          onClick={() => {
+                            removeList(list?.filter((l) => l.id !== item.id));
+                          }}
+                        />
+                      </RemoveButtonContainer>
+                    </NameWrapper>
+                    <RightWrap>
+                    <ButtonWrap>
+                      <ButtonContainer minus>
+                        <Button
+                          icon={MinusIcon}
+                          variant="textOnly"
+                          onClick={() => {
+                            const c = count - 1;
+                            setCount(c);
+                            clickHandler(val.mrp, val.discount, -1);
+                          }}
+                        />
+                      </ButtonContainer>
+                      <Square
+                        onChange={(event) => setCount(event.target.value)}
+                        type="number"
+                        value={count}
                       />
-                    </RemoveButtonContainer>
+                      <ButtonContainer plus>
+                        <Button
+                          variant="textOnly"
+                          icon={PlusIcon}
+                          onClick={() => {
+                            const c = count + 1;
+                            setCount(c);
+                            clickHandler(val.mrp, val.discount, 1);
+                          }}
+                        />
+                      </ButtonContainer>
+                    </ButtonWrap>
+                    <Prices>
+                      {val.currency.symbol} {val.mrp}
+                    </Prices>
+                    </RightWrap>
                   </Wrapper>
-                  <ButtonWrap>
-                    <ButtonContainer minus>
-                      <Button
-                        icon={MinusIcon}
-                        variant="textOnly"
-                        onClick={() => {
-                          setCount(count - 1);
-                        }}
-                      />
-                    </ButtonContainer>
-                    <Square type="number" value={count} />
-                    <ButtonContainer plus>
-                      <Button
-                        variant="textOnly"
-                        icon={PlusIcon}
-                        onClick={() => setCount(count + 1)}
-                      />
-                    </ButtonContainer>
-                  </ButtonWrap>
-                  {item.storeSpecificData &&
-                    item.storeSpecificData.map((data) => {
-                      return (
-                        <Prices>
-                          {data.currency.symbol} {data.mrp}
-                        </Prices>
-                      );
-                    })}
                 </ElementWrap>
               ) : null}
             </>

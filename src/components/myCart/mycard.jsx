@@ -4,16 +4,22 @@ import { useNavigate } from "react-router-dom";
 import {
   ParentDiv,
   HeadingParent,
-  PriceQuantity,
+  Heading,
   HeadingText,
-  ItemNames,
-  DivWrapper,
+  Parent,
+  PriceContainer,
+  MyCart,
 } from "./style";
+import { Price } from "./priceDetail";
+import { TypographyText } from "@zopsmart/zs-components";
 
 export function MyCard() {
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(true);
+  // let [discount, setDiscount] = useState(0);
   const navigate = new useNavigate();
+  const [currPrice, setCurrentPrice] = useState(0);
+  const [discount, setDiscount] = useState(0);
 
   useEffect(() => {
     async function fetchData() {
@@ -31,26 +37,67 @@ export function MyCard() {
     }
   }, []);
 
-  if (loading) return <span>Loding...</span>;
-  //   const imageList = product[0].images
-  //   console.log(imageList, 'dh')
+  useEffect(() => {
+    let discountPrice = 0;
+    let price = 0;
+    product?.forEach((item) => {
+      price += item.storeSpecificData
+        ? Number(item.storeSpecificData[0]?.mrp)
+        : 0;
+      discountPrice += item.storeSpecificData
+        ? Number(item.storeSpecificData[0]?.discount)
+        : 0;
+    });
+
+    setCurrentPrice(price);
+    setDiscount(discountPrice);
+  }, [product]);
+
+  function setPrice(price, disCount, flag) {
+    console.log(flag);
+    const updatedPrice =
+      flag === 1 ? currPrice + Number(price) : currPrice - Number(price);
+    const updatedDiscount =
+      flag === 1 ? discount + Number(disCount) : discount - Number(disCount);
+    setCurrentPrice(updatedPrice);
+    setDiscount(updatedDiscount);
+  }
+  if (loading) return <span>Loading...</span>;
   return (
-    // <GrandWrap>
-    <ParentDiv>
-      <HeadingParent>
-        <ItemNames>
-          <HeadingText>ITEMS NAME</HeadingText>
-        </ItemNames>
-        <PriceQuantity>
-          <HeadingText>QUANTITY</HeadingText>
-          <HeadingText>PRICE</HeadingText>
-        </PriceQuantity>
-      </HeadingParent>
-      <DivWrapper>
-        {product?.map((item) => {
-          return <Card item={item} removeList={setProduct} list={product} />;
-        })}
-      </DivWrapper>
-    </ParentDiv>
+    <>
+      {" "}
+      {currPrice > 0 ? (
+        <MyCart>
+          <ParentDiv>
+            <HeadingParent>
+              <HeadingText>ITEMS NAME</HeadingText>
+              <HeadingText>QUANTITY</HeadingText>
+              <HeadingText>PRICE</HeadingText>
+            </HeadingParent>
+            <Parent>
+              {product?.map((item) => {
+                const p =
+                  item?.storeSpecificData && item?.storeSpecificData[0]?.mrp;
+                return (
+                  <Card
+                    cb={setPrice}
+                    price={p}
+                    item={item}
+                    removeList={setProduct}
+                    list={product}
+                  />
+                );
+              })}
+            </Parent>
+          </ParentDiv>
+          <PriceContainer>
+            <Heading>
+              <TypographyText variant="xs" children="Price Details" />
+            </Heading>
+            <Price price={currPrice} discount={discount} currency="₹" />
+          </PriceContainer>
+        </MyCart>
+      ) : null}
+    </>
   );
 }
